@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Beba 💖</title>
+
+<style>
+body{
+    background: linear-gradient(135deg,#ff758f,#ff4d6d,#ffe5ec);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: Arial, sans-serif;
+    overflow:hidden;
+}
+
+.box{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    width:330px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+h1{
+    color:#ff3366;
+}
+
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    position:relative;
+}
+
+#yesBtn{
+    background:#ff3366;
+    color:white;
+}
+
+#noBtn{
+    background:#adb5bd;
+    position:absolute;
+}
+
+.heart{
+    position:fixed;
+    bottom:-10px;
+    font-size:24px;
+    animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+<h1>
+Hi Beba! 💕<br>
+Will you be my Valentine this year? 💖<br><br>
+Gomuno loves you 😘
+</h1>
+
+<button id="yesBtn" onclick="yesClicked()">Yes 💘</button>
+<button id="noBtn">No 🙈</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+    noBtn.style.left = Math.random()*260+"px";
+    noBtn.style.top = Math.random()*160+"px";
+});
+
+function yesClicked(){
+    document.body.innerHTML=`
+    <div style="
+    background:linear-gradient(135deg,#ff758f,#ff4d6d,#ffe5ec);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Arial;
+    text-align:center;">
+    <h1 style="color:white;">
+    You’re my Valentine forever Beba 😭💖<br><br>
+    I love you so much 😘<br><br>
+    — Gomuno 💕
+    </h1>
+    </div>`;
+}
+
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},400);
+</script>
+
+</body>
+</html>
